@@ -1,0 +1,614 @@
+<div class="row" *ngIf="isHolic">
+  <div class="col-10"></div>
+
+  <div class="col-2" *ngIf="!isConnected">
+    <button type="button" class="btn btn-primary" (click)="login()">Login</button>
+  </div>
+</div>
+<div>
+  <img
+    src="assets/img/holic/logo-holic-o.png"
+    style="margin-left:auto;margin-right:auto;width:59px;display:block"
+  />
+</div>
+
+<div class="holicTvPanel">
+  <div class="currentLiveTVPanel">
+    <div
+      id="liveTvPanelPanel"
+      class="liveTvPanel"
+      (dblclick)="detail(mainVideo.id)"
+    >
+      <div style="height: 39vw">
+        <div>
+          <mat-video
+            #mainvid
+            [title]="mainVideo.titre"
+            [autoplay]="true"
+            [loop]="true"
+            [overlay]="false"
+            [time]="mainVideo.time"
+            [preload]="true"
+            [fullscreen]="false"
+            [download]="false"
+            [muted]="mainVideo.mute"
+            color="primary"
+            spinner="spin"
+          >
+            <source
+              matVideoSource
+              src="api/account/videos/{{ mainVideo.id }}"
+              type="{{ mainVideo.format }}"
+            />
+          </mat-video>
+        </div>
+        <div *ngIf="!isMobile">
+          <div class="videotitle" *ngIf="isHolic">
+            HOLIC LIVE TV
+          </div>
+
+          <div class="videotitle" *ngIf="!isHolic">
+            HOLIC LIVE TV <span class="blackcolor">|</span>
+            {{ mainVideo.username }}
+          </div>
+          <div class="menu">
+            <img
+              (click)="redirectHome()"
+              src="assets/img/holic/home.png"
+              style="width:30px;"
+            />
+
+            <a (click)="previousUser()">
+              <img
+                src="assets/img/holic/bouton-holic-up.jpg"
+                style="width:30px;"
+            /></a>
+            <a (click)="nextUser()"
+              ><img
+                src="assets/img/holic/bouton-holic-dwn.jpg"
+                style="width:30px;"
+            /></a>
+            <a (click)="userExist()">
+              <img src="assets/img/holic/search-icon.png" style="width:30px;"
+            /></a>
+            <input
+              type="text"
+              id="videoCategorieId"
+              style="border: none; border-bottom: 1px solid rgba(0, 0, 0, 0.1); width: 24vw;"
+              [(ngModel)]="searchtext"
+              (keypress)="keyPress($event)"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="smallLiveTvPanel" *ngIf="!isMobile">
+    <div
+      class="videoPanel"
+      (dblclick)="detail(interviewVideo.id)"
+      (mouseover)="playInterview()"
+      (mouseout)="muteInterview()"
+    >
+      
+        <div class="title">{{ interviewVideo.titre }}</div>
+        <div id="interviewVideoPanel" class="video">
+          <div id="interviewVideo">
+            <div>
+              <mat-video
+                #interviewvid
+                [title]="interviewVideo.titre"
+                [autoplay]="true"
+                [loop]="true"
+                [overlay]="false"
+                [preload]="true"
+                [time]="interviewVideo.time"
+                [fullscreen]="false"
+                [download]="false"
+                [muted]="interviewVideo.mute"
+                color="accent"
+                spinner="spin"
+              >
+                <source
+                  matVideoSource
+                  src="api/account/videos/{{ interviewVideo.id }}"
+                  type="{{ interviewVideo.format }}"
+                />
+              </mat-video>
+            </div>
+          </div>
+        </div>
+        <a class="description">{{ interviewVideo.description }}</a>
+    </div>
+
+    <div
+      class="videoPanel"
+      (dblclick)="detail(reportVideo.id)"
+      (mouseover)="playReport()"
+      (mouseout)="muteReport()"
+    >
+      <a onclick="">
+        <div class="title">{{ reportVideo.description }}</div>
+        <div id="reportVideoPanel" class="video">
+          <div id="reportVideo">
+            <div>
+              <mat-video
+                #reportvid
+                matVideoSource
+                [title]="reportVideo.titre"
+                [autoplay]="true"
+                [loop]="true"
+                [overlay]="false"
+                [time]="reportVideo.time"
+                [fullscreen]="false"
+                [download]="false"
+                [muted]="reportVideo.mute"
+                [preload]="true"
+                color="accent"
+                spinner="spin"
+              >
+                <source
+                  src="api/account/videos/{{ reportVideo.id }}"
+                  type="{{ reportVideo.format }}"
+                />
+              </mat-video>
+            </div>
+          </div>
+        </div>
+        <div class="description">{{ reportVideo.description }}</div>
+      </a>
+    </div>
+
+    <div
+      class="videoPanel"
+      (dblclick)="detail(sportVideo.id)"
+      (mouseover)="playSport()"
+      (mouseout)="muteSport()"
+    >
+      <a onclick="">
+        <div class="title">{{ sportVideo.titre }}</div>
+        <div id="sportVideoPanel" class="video">
+          <div id="sportVideo">
+            <div>
+              <mat-video
+                #sportvid
+                matVideoSource
+                [title]="sportVideo.titre"
+                [autoplay]="true"
+                [loop]="true"
+                [time]="sportVideo.time"
+                [fullscreen]="false"
+                [download]="false"
+                [muted]="sportVideo.mute"
+                [overlay]="false"
+                [preload]="true"
+                color="accent"
+                spinner="spin"
+              >
+                >
+                <source
+                  src="api/account/videos/{{ sportVideo.id }}"
+                  type="{{ interviewVideo.format }}"
+                />
+              </mat-video>
+            </div>
+          </div>
+        </div>
+        <a class="description">{{ sportVideo.description }}</a>
+      </a>
+    </div>
+  </div>
+
+  <div class="smallLiveTvPanel" *ngIf="!isMobile">
+    <div
+      class="videoPanel"
+      (dblclick)="detail(musicVideo.id)"
+      (mouseover)="playMusic()"
+      (mouseout)="muteMusic()"
+    >
+        <div class="title">{{ musicVideo.titre }}</div>
+        <div id="musicVideoPanel" class="video">
+          <div id="musicVideo">
+            <div>
+              <mat-video
+                #musicvid
+                [title]="musicVideo.titre"
+                [overlay]="false"
+                [autoplay]="true"
+                [loop]="true"
+                [time]="musicVideo.time"
+                [fullscreen]="false"
+                [download]="false"
+                [muted]="musicVideo.mute"
+                [preload]="true"
+                color="accent"
+                spinner="spin"
+              >
+                >
+                <source
+                  matVideoSource
+                  src="api/account/videos/{{ musicVideo.id }}"
+                  type="{{ interviewVideo.format }}"
+                />
+              </mat-video>
+            </div>
+          </div>
+        </div>
+        <a class="description">{{ musicVideo.description }}</a>
+    </div>
+
+    <div
+      class="videoPanel"
+      (dblclick)="detail(lifestyleVideo.id)"
+      (mouseover)="playLifeStyle()"
+      (mouseout)="muteLifeStyle()"
+    >
+        <div class="title">{{ lifestyleVideo.titre }}</div>
+        <div id="lifestyleVideoPanel" class="video">
+          <div id="lifestyleVideo">
+            <div>
+              <mat-video
+                #lifestylevid
+                [title]="lifestyleVideo.titre"
+                [autoplay]="true"
+                [preload]="true"
+                [loop]="true"
+                [time]="lifestyleVideo.time"
+                [overlay]="false"
+                [fullscreen]="false"
+                [preload]="true"
+                [download]="false"
+                [muted]="lifestyleVideo.mute"
+                color="accent"
+                spinner="spin"
+              >
+                >
+                <source
+                  matVideoSource
+                  src="api/account/videos/{{ lifestyleVideo.id }}"
+                  type="{{ lifestyleVideo.format }}"
+                />
+              </mat-video>
+            </div>
+          </div>
+        </div>
+        <a class="description">{{ lifestyleVideo.description }}</a>
+    </div>
+
+    <div
+      class="videoPanel"
+      (dblclick)="detail(interview2Video.id)"
+      (mouseover)="playInterview2()"
+      (mouseout)="muteInterview2()"
+    >
+        <div class="title">
+          {{ interview2Video.titre }}
+        </div>
+        <div id="interview2VideoPanel" class="video">
+          <div id="interview2Video">
+            <div>
+              <mat-video
+                #interview2vid
+                [title]="interview2Video.titre"
+                [autoplay]="true"
+                [preload]="true"
+                [loop]="true"
+                [time]="interview2Video.time"
+                [fullscreen]="false"
+                [download]="false"
+                [preload]="true"
+                [overlay]="false"
+                [muted]="interview2Video.mute"
+                color="accent"
+                spinner="spin"
+              >
+                >
+                <source
+                  matVideoSource
+                  src="api/account/videos/{{ interview2Video.id }}"
+                  type="{{ interview2Video.format }}"
+                />
+              </mat-video>
+            </div>
+          </div>
+        </div>
+        <a class="description">{{ interview2Video.description }}</a>
+    </div>
+  </div>
+  <div class="smallLiveTvPanel" *ngIf="!isMobile">
+  </div>
+
+  <div
+    class="currentLiveTVPanel"
+    *ngIf="isMobile"
+    (mouseover)="playInterview()"
+    (mouseout)="muteInterview()"
+    (touchmove)="playInterview()"
+
+  >
+    <div
+      id="liveTvPanelPanel"
+      class="liveTvPanel"
+      (dbclick)="detail(interviewVideo.id)"
+    >
+      <div style="height: 39vw">
+        <div>
+          <mat-video
+            #interviewvid
+            [title]="interviewVideo.titre"
+            [autoplay]="true"
+            [loop]="true"
+            [overlay]="false"
+            [time]="interviewVideo.time"
+            [preload]="true"
+            [fullscreen]="false"
+            [download]="false"
+            [muted]="interviewVideo.mute"
+            color="primary"
+            spinner="spin"
+          >
+            <source
+              matVideoSource
+              src="api/account/videos/{{ interviewVideo.id }}"
+              type="{{ interviewVideo.format }}"
+            />
+          </mat-video>
+        </div>
+        <div>
+          <div class="videotitle">{{ interviewVideo.description }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="currentLiveTVPanel"
+    *ngIf="isMobile"
+    (mouseover)="playReport()"
+    (mouseout)="muteReport()"
+    (touchmove)="playReport()"
+  >
+    <div
+      id="liveTvPanelPanel"
+      class="liveTvPanel"
+      (dbclick)="detail(reportVideo.id)"
+    >
+      <div style="height: 39vw">
+        <div>
+          <mat-video
+            #reportvid
+            [title]="reportVideo.titre"
+            [autoplay]="true"
+            [loop]="true"
+            [overlay]="false"
+            [time]="reportVideo.time"
+            [preload]="true"
+            [fullscreen]="false"
+            [download]="false"
+            [muted]="reportVideo.mute"
+            color="primary"
+            spinner="spin"
+          >
+            <source
+              matVideoSource
+              src="api/account/videos/{{ reportVideo.id }}"
+              type="{{ reportVideo.format }}"
+            />
+          </mat-video>
+        </div>
+        <div>
+          <div class="videotitle">{{ reportVideo.description }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="currentLiveTVPanel"
+    *ngIf="isMobile"
+    (mouseover)="playSport()"
+    (mouseout)="muteSport()"
+    (touchmove)="playSport()"
+  >
+    <div
+      id="liveTvPanelPanel"
+      class="liveTvPanel"
+      (dbclick)="detail(sportVideo.id)"
+    >
+      <div style="height: 39vw">
+        <div>
+          <mat-video
+            #sportvid
+            [title]="sportVideo.titre"
+            [autoplay]="true"
+            [loop]="true"
+            [overlay]="false"
+            [time]="sportVideo.time"
+            [preload]="true"
+            [fullscreen]="false"
+            [download]="false"
+            [muted]="sportVideo.mute"
+            color="primary"
+            spinner="spin"
+          >
+            <source
+              matVideoSource
+              src="api/account/videos/{{ sportVideo.id }}"
+              type="{{ sportVideo.format }}"
+            />
+          </mat-video>
+        </div>
+        <div>
+          <div class="videotitle">{{ sportVideo.description }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="currentLiveTVPanel"
+    *ngIf="isMobile"
+    (mouseover)="playMusic()"
+    (mouseout)="muteMusic()"
+    (touchmove)="playMusic()"
+  >
+    <div
+      id="liveTvPanelPanel"
+      class="liveTvPanel"
+      (dbclick)="detail(musicVideo.id)"
+    >
+      <div style="height: 39vw">
+        <div>
+          <mat-video
+            #musicvid
+            [title]="musicVideo.titre"
+            [autoplay]="true"
+            [loop]="true"
+            [overlay]="false"
+            [time]="musicVideo.time"
+            [preload]="true"
+            [fullscreen]="false"
+            [download]="false"
+            [muted]="musicVideo.mute"
+            color="primary"
+            spinner="spin"
+          >
+            <source
+              matVideoSource
+              src="api/account/videos/{{ musicVideo.id }}"
+              type="{{ musicVideo.format }}"
+            />
+          </mat-video>
+        </div>
+        <div>
+          <div class="videotitle">{{ musicVideo.description }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="currentLiveTVPanel"
+    *ngIf="isMobile"
+    (mouseover)="playLifeStyle()"
+    (mouseout)="muteLifeStyle()"
+    (touchmove)="playLifeStyle()"
+  >
+    <div
+      id="liveTvPanelPanel"
+      class="liveTvPanel"
+      (dbclick)="detail(lifestyleVideo.id)"
+    >
+      <div style="height: 39vw">
+        <div>
+          <mat-video
+            #lifestylevid
+            [title]="lifestyleVideo.titre"
+            [autoplay]="true"
+            [loop]="true"
+            [overlay]="false"
+            [time]="lifestyleVideo.time"
+            [preload]="true"
+            [fullscreen]="false"
+            [download]="false"
+            [muted]="lifestyleVideo.mute"
+            color="primary"
+            spinner="spin"
+          >
+            <source
+              matVideoSource
+              src="api/account/videos/{{ lifestyleVideo.id }}"
+              type="{{ lifestyleVideo.format }}"
+            />
+          </mat-video>
+        </div>
+        <div>
+          <div class="videotitle">{{ lifestyleVideo.description }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="currentLiveTVPanel"
+    *ngIf="isMobile"
+    (mouseover)="playInterview2()"
+    (mouseout)="muteInterview2()"
+    (touchmove)="playInterview2()"
+  >
+    <div
+      id="liveTvPanelPanel"
+      class="liveTvPanel"
+      (dbclick)="detail(interview2Video.id)"
+    >
+      <div style="height: 39vw">
+        <div>
+          <mat-video
+            #interview2vid
+            [title]="interview2Video.titre"
+            [autoplay]="true"
+            [loop]="true"
+            [overlay]="false"
+            [time]="interview2Video.time"
+            [preload]="true"
+            [fullscreen]="false"
+            [download]="false"
+            [muted]="interview2Video.mute"
+            color="primary"
+            spinner="spin"
+          >
+            <source
+              matVideoSource
+              src="api/account/videos/{{ interview2Video.id }}"
+              type="{{ interview2Video.format }}"
+            />
+          </mat-video>
+        </div>
+        <div>
+          <div class="videotitle">{{ interview2Video.description }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div *ngIf="isMobile" class="row">
+    <div class="videotitle" *ngIf="isHolic">
+      HOLIC LIVE TV
+    </div>
+
+    <div class="videotitle" *ngIf="!isHolic">
+      HOLIC LIVE TV <span class="blackcolor">|</span>
+      {{ mainVideo.username }}
+    </div>
+    <div class="menu">
+      <img
+        (click)="redirectHome()"
+        src="assets/img/holic/home.png"
+        style="width:30px;"
+      />
+
+      <a (click)="previousUser()">
+        <img
+          src="assets/img/holic/bouton-holic-up.jpg"
+          style="width:30px;"
+      /></a>
+      <a (click)="nextUser()"
+        ><img
+          src="assets/img/holic/bouton-holic-dwn.jpg"
+          style="width:30px;"
+      /></a>
+      <a (click)="userExist()">
+        <img src="assets/img/holic/search-icon.png" style="width:30px;"
+      /></a>
+      <input
+        type="text"
+        id="videoCategorieId"
+        style="border: none; border-bottom: 1px solid rgba(0, 0, 0, 0.1); width: 24vw;"
+        [(ngModel)]="searchtext"
+        (keypress)="keyPress($event)"
+      />
+    </div>
+  </div>
+</div>

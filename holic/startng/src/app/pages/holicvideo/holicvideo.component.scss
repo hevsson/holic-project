@@ -1,0 +1,96 @@
+  .controls {
+      position: absolute;
+      height: 337.5px;
+      max-width: 40px;
+      background-color: #111;
+      overflow-x: hidden;
+      transition: 0.5s;
+      opacity: 0.5;
+      z-index: 1;
+  }
+  
+  .controls a {
+      padding: 8px 8px 8px 8px;
+      text-decoration: none;
+      font-size: 15px;
+      color: #818181;
+      display: block;
+      transition: 0.3s;
+      text-align: center;
+  }
+  
+  .controls a:hover, .offcanvas a:focus{
+      color: #f1f1f1;
+  }
+  
+  
+  video {
+       position: absolute;
+       object-fit: fill;
+    
+  }
+  
+  .player {
+       position: relative;
+      margin: 0 auto;
+      max-height:300px;
+      max-width:600px;
+      align:"center";
+      margin-top: 0px;
+      margin-bottom: 0px; 
+      
+  }
+  
+  .bouton {
+      max-width: 600px;
+      height: auto;
+      margin-left:auto;
+      margin-right:auto;
+      text-align: center;
+      margin-top: 40px;
+  }
+  
+  .menutitle
+{
+    position: relative;
+    margin: 0 auto;
+    max-width:600px;
+      margin-top: 0px;
+      margin-bottom: 0px; 
+}
+  .videotitle
+{
+	
+float : left;
+color: #7E4855;
+    font-size: 2vw;
+    padding: 1vw 0;
+
+}
+
+.menu
+{
+	
+float : right;
+padding: 1vw 0;
+}
+
+
+.videotitle {
+	color: #7E4855;
+	font-size: 2vw;
+	padding: 1vw 0;
+}
+
+.menubar {
+    position: relative;
+    margin: 0 auto;
+    max-width:600px;
+    margin-top: 0px;
+    margin-bottom: 0px; 
+}
+
+.blackcolor {
+	color: black !important;
+	font-weight: bold;
+}

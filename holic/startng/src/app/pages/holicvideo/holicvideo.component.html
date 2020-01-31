@@ -1,0 +1,52 @@
+
+<div>
+	<img src="assets/img/holic/logo-holic-o.png" style="margin-left:auto;margin-right:auto;margin-top:5em;width:59px;display:block" />
+</div>
+<div  class="player">
+	<div id="mycontrols" class="controls" (mouseover)="show()" (mouseout)="notshow()" [hidden]="!showMenu">
+  		<div style="margin-top: 20px;"></div>
+  		<a id="twiter" (click)="redirecttwitter()"><i class="fa fa-twitter" style="font-size:20px"></i></a>
+  		<a id="facebook" (click)="redirectfacebook()" ><i class="fa fa-facebook-f" style="font-size:20px"></i></a>
+  		<a id="airplay" href="#"><i class="fa fa-apple" style="font-size:20px"></i></a>
+  </div>
+  <div >
+	<mat-video
+    #mainvid
+    [title]="video.titre"
+    [autoplay]="true"
+    [loop]="true"
+    [overlay]="false"
+    [time]="video.time"
+    [preload]="true"
+    [fullscreen]="true"
+    [download]="false"
+    [muted]="video.mute"
+    color="primary"
+    spinner="spin"
+>
+<source
+  matVideoSource
+  src="api/account/videos/{{ video.id }}"
+  type="{{ video.format }}"
+/>
+</mat-video>
+</div>
+</div>
+
+
+<div id="bouton" class="bouton" >
+<a id="link" (click)="previous()" parambouton="previous"> <img src="assets/img/holic/previous1.png" style="width:30px;" /></a>
+<a id="link" (click)="playcurrent()" parambouton="current" > <img src="assets/img/holic/play.png" style="width:30px;" /></a>
+<a id="link" (click)="next()" parambouton="next" > <img src="assets/img/holic/next.png" style="width:30px;" /></a>
+</div>
+<br/>
+<div class="menubar">
+  <div class="videotitle"><a (click)="redirectMainTv()">HOLIC LIVE TV <span class="blackcolor">|</span> {{video.username}}</a></div>
+  <div class="menu">
+    <img
+      (click)="redirectHome()"
+      src="assets/img/holic/home.png"
+      style="width:30px;"
+    />
+  </div>
+</div>

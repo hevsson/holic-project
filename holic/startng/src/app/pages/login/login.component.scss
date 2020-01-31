@@ -1,0 +1,49 @@
+.login-container {
+  position: absolute;
+  border: none !important;
+}
+
+.login {
+  background-color: white !important;
+}
+
+.keepme {
+  color: black !important;
+}
+.submit {
+  color: white !important;
+  background-color: black !important;
+}
+
+
+
+.formulaire {
+  margin-left: auto;
+  margin-right: auto;
+  vertical-align: center;
+  text-align: center;
+  margin-top: 8em;
+  max-width: 180px;
+}
+.formulaire img {
+  display: block;
+  width: 59px;
+  height: auto;
+  margin: 15px auto;
+}
+.formulaire form ul {
+  text-align: center;
+}
+.formulaire form ul > li {
+  margin: 10px 0;
+  list-style-type: none;
+}
+.formulaire form ul > li > * {
+  display: inline-block;
+  vertical-align: middle;
+}
+.formulaire form ul > li > label {
+  min-width: 100px;
+  text-align: left;
+  color: black;
+}

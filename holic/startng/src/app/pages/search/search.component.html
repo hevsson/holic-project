@@ -1,0 +1,17 @@
+<div class="row mb-1">
+  <div class="col">
+    <div class="input-group mb-3 box-shadow">
+      <input
+        type="text"
+        [(ngModel)]="searchvalue"
+        placeholder="Search user by name..."
+        class="form-control border-0"
+      />
+      <div class="input-group-prepend">
+        <button (click)="search()" class="btn btn-primary">
+          <i class="fa fa-search"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
