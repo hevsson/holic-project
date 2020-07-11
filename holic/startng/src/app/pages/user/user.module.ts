@@ -8,6 +8,9 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { DirectivesModule } from '../../theme/directives/directives.module';
 import { UserComponent } from './user.component';
 import { MatVideoModule } from '../video/video.module';
+import { MatCardModule } from '@angular/material';
+import { HAMMER_GESTURE_CONFIG, HammerGestureConfig } from '@angular/platform-browser';
+import { MyHammerConfig } from 'src/app/app.module';
 
 
 export const routes = [
@@ -22,10 +25,17 @@ export const routes = [
     PerfectScrollbarModule,
     NgxChartsModule,
     DirectivesModule,
-    MatVideoModule
+    MatVideoModule,
+    MatCardModule
   ],
   declarations: [
     UserComponent
+  ],
+  providers: [
+    {
+      provide: HAMMER_GESTURE_CONFIG,
+      useClass: MyHammerConfig,
+    },
   ]
 })
 

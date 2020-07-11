@@ -223,3 +223,5 @@ $fa-font-path : "../node_modules/font-awesome/fonts";
 ::-webkit-scrollbar-corner {
     background: transparent;
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

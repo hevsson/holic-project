@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, HAMMER_GESTURE_CONFIG, HammerGestureConfig } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -42,21 +42,54 @@ import { LoginService } from './pages/login/service/login.service';
 import { UserProfileService } from './pages/login/service/userprofile.service';
 import { AuthGuard } from './auth/auth.guard';
 import { HttpClientModule } from '@angular/common/http';
-import { MatSnackBarModule } from '@angular/material';
+import { MatSnackBarModule, MatCard, MatCardModule, MatCheckboxModule, MatChipsModule, MatStepperModule, MatDatepickerModule, MatDialogModule, MatDividerModule, MatExpansionModule, MatGridListModule, MatIconModule, MatInputModule, MatListModule, MatMenuModule, MatNativeDateModule, MatPaginatorModule, MatProgressBarModule, MatProgressSpinnerModule, MatRadioModule, MatRippleModule, MatSelectModule, MatSidenavModule, MatSliderModule, MatSlideToggleModule, MatSortModule, MatTableModule, MatTabsModule, MatToolbarModule, MatTooltipModule } from '@angular/material';
 import { AnonymousGuard } from './auth/anonymous.guard';
 import { VideoResolver } from './pages/dashboard/service/video.resolver';
 import { UserVideoResolver } from './pages/dashboard/service/uservideo.resolver';
 import { DeviceDetectorModule } from 'ngx-device-detector';
 import { MatVideoModule } from './pages/video/video.module';
 import { VideoDetailResolver } from './pages/holicvideo/service/videodetail.resolver';
+import * as Hammer from 'hammerjs';
 
 
-
+export class MyHammerConfig extends HammerGestureConfig {
+  overrides = <any> {
+    swipe: { direction: Hammer.DIRECTION_ALL },
+  };
+}
 
 @NgModule({
   imports: [
     MatVideoModule,
-    BrowserModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatChipsModule,
+    MatStepperModule,
+    MatDatepickerModule,
+    MatDialogModule,
+    MatDividerModule,
+    MatExpansionModule,
+    MatGridListModule,
+    MatIconModule,
+    MatInputModule,
+    MatListModule,
+    MatMenuModule,
+    MatNativeDateModule,
+    MatPaginatorModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
+    MatRadioModule,
+    MatRippleModule,
+    MatSelectModule,
+    MatSidenavModule,
+    MatSliderModule,
+    MatSlideToggleModule,
+    MatSnackBarModule,
+    MatSortModule,
+    MatTableModule,
+    MatTabsModule,
+    MatToolbarModule,
+    MatTooltipModule,
     BrowserAnimationsModule,
     FormsModule,
     PerfectScrollbarModule,
@@ -106,7 +139,11 @@ import { VideoDetailResolver } from './pages/holicvideo/service/videodetail.reso
     AuthGuard,
     AnonymousGuard,
     UserProfileService,
-    { provide: PERFECT_SCROLLBAR_CONFIG, useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG }
+    { provide: PERFECT_SCROLLBAR_CONFIG, useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG },
+    {
+      provide: HAMMER_GESTURE_CONFIG,
+      useClass: MyHammerConfig,
+    }
   ],
   bootstrap: [ AppComponent ]
 })

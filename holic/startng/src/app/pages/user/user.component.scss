@@ -1,46 +1,50 @@
 #liveVideo {
-	display: none !important;
+  display: none !important;
 }
 
-#wrapper{
-	    padding: 0vw 0 0 4em!important;
+#wrapper {
+  padding: 0vw 0 0 4em !important;
 }
 
 /*-------------------------------------------------------------------*/
-	
-.hide{
-display:none;
+
+.hide {
+  display: none;
 }
 .holicTvPanel {
-	width: 100%;
-	margin-top: 2vw;
+  width: 100%;
+  margin-top: 2vw;
 }
-.holicTvPanel > div > img, holicTvPanel > div > img{ margin: 30px 0; }
+.holicTvPanel > div > img,
+holicTvPanel > div > img {
+  margin: 30px 0;
+}
 
 .currentLiveTVPanel {
-	width: 100%;
-	float: left;
+  width: 100%;
+  float: left;
 }
-
+.currentLiveTVCard {
+}
 
 .currentLiveTVPanel .liveTvPanel {
-	width: 75%;
-	height: 39vw;
-	margin-left:auto;
-	margin-right:auto;
+  width: 75%;
+  height: 39vw;
+  margin-left: auto;
+  margin-right: auto;
 }
 .liveTvPanel {
-	height: 32vw;
+  height: 32vw;
 }
 
 .currentLiveTVPanel .videotitle {
-	color: #7E4855;
-	font-size: 2vw;
-	padding: 1vw 0;
+  color: #7e4855;
+  font-size: 2vw;
+  padding: 1vw 0;
 }
 
-.currentLiveTVPanel  .videoContentTitle {
-	font-weight: bold;
+.currentLiveTVPanel .videoContentTitle {
+  font-weight: bold;
 }
 
 /*
@@ -53,226 +57,352 @@ display:none;
 */
 /*---------------Small Video-----------------*/
 .smallLiveTvPanel {
-	width: 100%;
-/* 	overflow: auto; */
-	clear : both;
-	padding-left: 1%;
-/* 	height: 35.6vw; */
-	/* 	max-height: 500px; */
-	margin-right:auto;
-	margin-left:auto;
-	width: 75%;
-	padding-top: 3vw;
+  width: 100%;
+  /* 	overflow: auto; */
+  clear: both;
+  padding-left: 1%;
+  /* 	height: 35.6vw; */
+  /* 	max-height: 500px; */
+  margin-right: auto;
+  margin-left: auto;
+  width: 75%;
+  padding-top: 3vw;
 }
 
 .smallLiveTvPanel a {
-	text-decoration: none;
-	color: black;
+  text-decoration: none;
+  color: black;
 }
 
-.smallLiveTvPanel a:HOVER {
-	text-decoration: none;
-	color: black;
+.smallLiveTvPanel a:hover {
+  text-decoration: none;
+  color: black;
 }
 
 .videoPanel {
-	float: left;
-	width: 33%;
-	margin-top: 2em;
+  float: left;
+  width: 33%;
+  margin-top: 2em;
 }
 .blackcolor {
-	color: black !important;
-	font-weight: bold;
+  color: black !important;
+  font-weight: bold;
 }
 .videoPanel .title {
-	border-bottom: solid 1px #7E4855;
-	text-align: center;
-	color: #8E8E8E;
-	font-weight: bold;
-	font-size: 1vw;
+  border-bottom: solid 1px #7e4855;
+  text-align: center;
+  color: #8e8e8e;
+  font-weight: bold;
+  font-size: 1vw;
 }
 
 .videoPanel {
-	padding: 1em 1em 0 1em;
-	height: 12vw;
+  padding: 1em 1em 0 1em;
+  height: 12vw;
 }
 
 .videoPanel .description {
-	padding-left: 1em;
-	padding-right: 1em;
-	padding-bottom: 1em;
-	font-size: 1vw;
-	line-height: 150%;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-bottom: 1em;
+  font-size: 1vw;
+  line-height: 150%;
 }
 
 /*----------------------------- PAGE VIDEO DETAIL-------------------------*/
 .currentLiveTVPanelDetail {
-	width: 70%;
-	float: left;
+  width: 70%;
+  float: left;
 }
 
 .smallLiveTvPanelDetail {
-	width: 29%;
-	cursor: pointer;
-	float: left;
-	padding-left: 1%;
-	height: 36.5vw;
-	overflow-y: auto;
-	
+  width: 29%;
+  cursor: pointer;
+  float: left;
+  padding-left: 1%;
+  height: 36.5vw;
+  overflow-y: auto;
 }
 
 .smallLiveTvPanelDetail a {
-	text-decoration: none;
-	color: black;
+  text-decoration: none;
+  color: black;
 }
 
-.smallLiveTvPanelDetail a:HOVER {
-	text-decoration: none;
-	color: black;
+.smallLiveTvPanelDetail a:hover {
+  text-decoration: none;
+  color: black;
 }
 
 .videoPanelDetail {
-	float: left;
-	width: 100%;
-	position: relative;
+  float: left;
+  width: 100%;
+  position: relative;
 }
 
 .videoPanelDetail .caption {
-	position: absolute;
-	top: 20%;
-	left: 25%;
-	width: 15%;
-	margin-left: -1%;
-	opacity: 0.7;
-	z-index: 1;
+  position: absolute;
+  top: 20%;
+  left: 25%;
+  width: 15%;
+  margin-left: -1%;
+  opacity: 0.7;
+  z-index: 1;
 }
 
 .videoPanelDetailmg {
-	float: left;
-	width: 70%;
+  float: left;
+  width: 70%;
 }
 
 .videoPanelDetailDescription {
-	float: left;
-	width: 35%;
-	padding-left: 2%;
-	font-size: 1vw;
-	line-height: 150%;
+  float: left;
+  width: 35%;
+  padding-left: 2%;
+  font-size: 1vw;
+  line-height: 150%;
 }
 
 .multiple-items {
-	float: left;
-	width: 60%;
+  float: left;
+  width: 60%;
 }
 
 .holicdetail {
-	width: 100%;
-	padding: 0%;
-	margin: 0%;
-	padding: 0%;
-	display-block:0;
-	margin-top: 0px;
-    margin-bottom: 0px; 
+  width: 100%;
+  padding: 0%;
+  margin: 0%;
+  padding: 0%;
+  display-block: 0;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 .item {
-	height: 8.5vw !important;
+  height: 8.5vw !important;
 }
 
-#searchVideo img{
-	width:1vw;
-	height:1vw;
+#searchVideo img {
+  width: 1vw;
+  height: 1vw;
 }
 
-video:-webkit-full-screen     { max-height: 100%; }
-video:-moz-full-screen        { max-height: 100%; }
+video:-webkit-full-screen {
+  max-height: 100%;
+}
+video:-moz-full-screen {
+  max-height: 100%;
+}
 
 .currentLiveTVPanel video::-webkit-media-controls {
- //display:none !important;
- }
-
+  //display:none !important;
+}
 
 .currentLiveTVPanel video::-webkit-media-controls-timeline {
-    visibility: hidden !important;
-    max-width:40%;
-   
+  visibility: hidden !important;
+  max-width: 40%;
 }
-.currentLiveTVPanel video::-webkit-media-controls-play-button{
-	 display:none !important;
+.currentLiveTVPanel video::-webkit-media-controls-play-button {
+  display: none !important;
 }
-.currentLiveTVPanel video::-webkit-media-controls-current-time-display{
-	 display:none !important;
+.currentLiveTVPanel video::-webkit-media-controls-current-time-display {
+  display: none !important;
 }
-.hiddden{
-	display:none !important;
+.hiddden {
+  display: none !important;
 }
 
-.shown{
-	display:block !important;
+.shown {
+  display: block !important;
 }
 
 .parentDiv // Results in around 400x400 pixels for me
 {
-    position: absolute;
-    top: 11px;
-    right: 10px;
-    left: 10px;
-    height: -webkit-calc(50% - 18px);
-    height: calc(50% - 18px); 
-    display: block;
+  position: absolute;
+  top: 11px;
+  right: 10px;
+  left: 10px;
+  height: -webkit-calc(50% - 18px);
+  height: calc(50% - 18px);
+  display: block;
 }
-body > .formulaire{ margin-top: 150px; }
-body > .formulaire img{ display: block;
-	width:59px;
-	height: auto;
-	margin: 15px auto;
+body > .formulaire {
+  margin-top: 150px;
 }
-body > .formulaire form ul{ text-align: center; }
-body > .formulaire form ul > li{ margin: 10px 0;
-	list-style-type: none;
+body > .formulaire img {
+  display: block;
+  width: 59px;
+  height: auto;
+  margin: 15px auto;
 }
-body > .formulaire form ul > li > *{ display: inline-block;
-	vertical-align: middle;
+body > .formulaire form ul {
+  text-align: center;
 }
-body > .formulaire form ul > li > label{ min-width: 100px;
-	text-align: left;
-	color: black;
+body > .formulaire form ul > li {
+  margin: 10px 0;
+  list-style-type: none;
+}
+body > .formulaire form ul > li > * {
+  display: inline-block;
+  vertical-align: middle;
+}
+body > .formulaire form ul > li > label {
+  min-width: 100px;
+  text-align: left;
+  color: black;
 }
 
 .videoPanel2 {
-	width: 33%;
+  width: 33%;
 }
 
 #progressbox {
-	position: relative;
-	width: 400px;
-	border: 1px solid #ddd;
-	padding: 1px;
-	border-radius: 3px;
+  position: relative;
+  width: 400px;
+  border: 1px solid #ddd;
+  padding: 1px;
+  border-radius: 3px;
 }
 
 #progressbar {
-	background-color: #cccccc;
-	width: 0%;
-	height: 20px;
-	border-radius: 4px;
+  background-color: #cccccc;
+  width: 0%;
+  height: 20px;
+  border-radius: 4px;
 }
 
 #percent {
-	position: absolute;
-	display: inline-block;
-	top: 3px;
-	left: 48%;
+  position: absolute;
+  display: inline-block;
+  top: 3px;
+  left: 48%;
 }
 
-.videotitle
-{
-	
-float : left;
+.videotitle {
+  float: left;
 }
 
-.menu
-{
-	
-float : right;
-padding: 1vw 0;
+.menu {
+  float: right;
+  padding: 1vw 0;
+}
+
+.mobile {
+  min-height: -webkit-fill-available !important;
+  min-width: -webkit-fill-available !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+  font-family: 'Roboto' !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+}
+
+video {
+  width: 100%;
+}
+
+@media (max-width: 800px) {
+  #description {
+    margin: auto;
+    margin-top: 1em;
+    width: 20em;
+  }
+  #logo1 {
+    height: 4em;
+    width: 4em;
+  }
+  #loginB,
+  #loginB2 {
+    padding: 1em;
+    font-size: 100%;
+    width: auto;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1em;
+    margin-right: 1.5em;
+    color: #2a9544;
+    border: 2px solid #2a9544;
+  }
+  #main video {
+    max-width: 100%;
+    height: auto;
+  }
+  #searchInput {
+    width: 50%;
+    height: auto;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    color: rgba(0, 0, 0, 0.7);
+    font-size: 110%;
+    padding: 1em;
+  }
+  #footerWrp img {
+    height: 2em;
+    width: 2em;
+    margin-right: 0.85em;
+  }
+  #mainWrpY > div {
+    height: 35em;
+  }
+  #leftArrow,
+  #rightArrow {
+    display: none;
+  }
+
+  .videotitle {
+    color: #7e4855;
+    font-size: 2vw;
+    padding: 1vw 0;
+    float: left;
+  }
+}
+@media (min-width: 800px) {
+  #logo1 {
+    height: 3.2em;
+    width: 3.2em;
+  }
+  #loginB {
+    padding: 5px;
+    font-size: 100%;
+    width: auto;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1em;
+    margin-right: 1.5em;
+    color: #0088e3;
+  }
+  #main video {
+    height: 29em;
+    -webkit-user-select: none; /* Chrome all / Safari all */
+    -moz-user-select: none; /* Firefox all */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none;
+  }
+  #searchInput {
+    width: 50%;
+    height: auto;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    color: rgba(0, 0, 0, 0.7);
+    font-size: 105%;
+    margin-bottom: 0.6em;
+    padding: 0.6em;
+  }
+
+  #footerWrp img {
+    height: 2.3em;
+    width: 2.3em;
+    margin-right: 0.6em;
+  }
+
+  
+  .videotitle {
+    color: #7e4855;
+    font-size: 2vw;
+    padding: 1vw 0;
+    float: left;
+  }
 }

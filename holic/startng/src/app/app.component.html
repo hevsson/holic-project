@@ -14,7 +14,13 @@
     </div> 
 </div>-->
 
-<div class="app"  [ngClass]="settings.theme.skin" 
+<div class="app" *ngIf="isMobile">
+    <div class="wrapper">
+        <router-outlet></router-outlet>
+    </div> 
+</div>
+
+<div class="app" *ngIf="!isMobile" [ngClass]="settings.theme.skin" 
                   [class.navbar-fixed]="settings.theme.navbarIsFixed"  
                   [class.sidebar-fixed]="settings.theme.sidebarIsFixed"  
                   [class.horizontal-menu]="settings.theme.menu == 'horizontal'" 
